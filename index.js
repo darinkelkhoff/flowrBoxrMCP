@@ -7,7 +7,7 @@ const { z } = require("zod");
 const COMMENT_CHARS = {
   "/": ["js", "ts", "jsx", "tsx", "java", "c", "cpp", "h", "hpp", "cs", "go", "rs", "swift", "kt", "kts", "scala", "groovy", "gradle", "json", "css", "scss", "less", "php"],
   "#": ["sh", "bash", "zsh", "py", "rb", "pl", "pm", "yaml", "yml", "toml", "tf", "hcl", "r", "jl", "coffee", "mk", "makefile", "dockerfile", "gitignore", "env", "vtl", "vm", "conf"],
-  "--": ["sql", "lua", "hs", "elm", "ada"],
+  "-": ["sql", "lua", "hs", "elm", "ada"],
   ";": ["clj", "cljs", "el", "lisp", "scm", "asm"],
   "%": ["tex", "erl", "m"],
 };
@@ -117,7 +117,7 @@ server.tool(
   {
     text: z.string().describe("The text to put inside the flower box. Can be single or multi-line."),
     filename: z.string().optional().describe("Optional filename (or extension like '.py') to auto-detect the comment character."),
-    comment_char: z.string().optional().describe("Optional explicit comment character to use (e.g., '/', '#', '--'). Overrides filename detection."),
+    comment_char: z.string().optional().describe("Optional explicit comment character to use (e.g., '/', '#', '-'). Overrides filename detection."),
     indent: z.number().optional().describe("Optional number of spaces to indent the entire box. If not provided, indentation is detected from the input text."),
   },
   async ({ text, filename, comment_char, indent }) => {

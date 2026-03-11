@@ -131,5 +131,17 @@ let hashMulti = createFlowerBoxComment("Test\nMore", "#");
 let hashExpected = "##########\n## Test ##\n## More ##\n##########";
 assertEquals(hashExpected, hashMulti, "hash: multi");
 
+// Test with - comment char (SQL/Lua style -- doubles to --)
+expected = "----------\n-- Test --\n----------";
+assertEquals(expected, createFlowerBoxComment("Test", "-"), "dash: single");
+
+let dashMulti = createFlowerBoxComment("Test\nMore", "-");
+let dashExpected = "----------\n-- Test --\n-- More --\n----------";
+assertEquals(dashExpected, dashMulti, "dash: multi");
+
+// Verify it strips existing -- prefixes correctly
+assertEquals(expected, createFlowerBoxComment("-- Test", "-"), "dash: prefixed");
+assertEquals(expected, createFlowerBoxComment("-- Test --", "-"), "dash: already boxed");
+
 console.log(`\n${passed} passed, ${failed} failed`);
 process.exit(failed > 0 ? 1 : 0);
