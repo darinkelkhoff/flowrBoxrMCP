@@ -73,6 +73,13 @@ box comments. Pass the filename so it auto-detects the comment character, and us
 parameter to match surrounding indentation.
 ```
 
+And to make it always be allowed without prompting, you can add to `~/.claude/settings.json`:
+```json
+  "permissions": {
+    "allow": [
+      "mcp__flowrBoxr__create_flower_box_comment"
+```
+
 ## Running tests
 
 ```sh
