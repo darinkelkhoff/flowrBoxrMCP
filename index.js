@@ -112,7 +112,9 @@ const server = new McpServer({
 server.tool(
   "create_flower_box_comment",
   "Create a flower box comment - a decorative box made of comment characters surrounding text. " +
-  "Use this whenever you need to write a box comment, section header comment, or decorative comment block in code. " +
+  "Use this for inline section dividers and block comments within code. " +
+  "Do NOT use this for element-level documentation (classes, methods, fields, interfaces, enums) in Java or similar languages — " +
+  "use full-width Javadoc headers for those (e.g., /***...***\\n * ...\\n ***...***/). " +
   "The comment character is auto-detected from the filename extension, or can be specified manually.",
   {
     text: z.string().describe("The text to put inside the flower box. Can be single or multi-line."),

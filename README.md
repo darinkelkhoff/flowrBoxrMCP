@@ -71,6 +71,15 @@ When writing or editing code in a codebase that uses flower box comments, **alwa
 `mcp__flowrBoxr__create_flower_box_comment` tool** to generate them. Do not hand-write flower
 box comments. Pass the filename so it auto-detects the comment character, and use the `indent`
 parameter to match surrounding indentation.
+
+**Java/Javadoc exception:** In Java (and similar languages), do NOT use flower box comments for
+element-level documentation (classes, methods, fields, interfaces, enums). Use full-width Javadoc
+headers instead:
+    /***********************************************************************
+     * Description of the element
+     ***********************************************************************/
+Flower box comments are only for inline section dividers and block comments within method bodies
+or between logical sections — not for element headers.
 ```
 
 And to make it always be allowed without prompting, you can add to `~/.claude/settings.json`:
