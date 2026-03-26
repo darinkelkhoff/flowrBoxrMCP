@@ -1,1 +1,11 @@
+# Node.js
 node_modules/
+dist/
+*.log
+
+# macOS
+.DS_Store
+
+# Editor
+*.swp
+*~
